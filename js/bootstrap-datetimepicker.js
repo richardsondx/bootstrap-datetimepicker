@@ -389,6 +389,14 @@
 			} else {
 				top = offset.top + this.height;
 			}
+			if (this.container) {
+				var container = $(this.container);
+				top -= container.offset().top;
+				left -= container.offset().left;
+				top += container.scrollTop();
+				left += container.scrollLeft();
+				top  += 5; // Arbitrary
+			}
 			this.picker.css({
 				top: top,
 				left: left,
